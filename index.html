@@ -21,9 +21,9 @@
         }
 
         function extractRedirectPath() {
-            var search = window.location.search;
-            var match = search.match(/\?redirect\/(.*)/);
-            return match ? match[1] : '';
+            // Extract the fragment after #/
+            var hash = window.location.hash.substring(2); // Removes #/
+            return hash;
         }
 
         setTimeout(function () {
