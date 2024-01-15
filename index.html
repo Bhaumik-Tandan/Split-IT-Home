@@ -11,12 +11,10 @@
     <h1>Please Wait...</h1>
     <script>
         function openStore() {
-            var deepLink = `split-cash://${extractRedirectPath()}`;
-            console.log(`split-cash://${extractRedirectPath()}`);
             if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
-                window.location = `https://apps.apple.com/in/app/vitian/id1491471781?deep_link=${encodeURIComponent(deepLink)}`;
+                window.location = https://apps.apple.com/in/app/vitian/id1491471781;
             } else if (navigator.userAgent.match(/Android/)) {
-                window.location = `https://play.google.com/store/apps/details?id=edu.vit.vtop.androidapp&pli=1&deep_link=${encodeURIComponent(deepLink)}`;
+                window.location = https://play.google.com/store/apps/details?id=edu.vit.vtop.androidapp&pli=1;
             }
         }
 
@@ -26,6 +24,9 @@
             return hash;
         }
 
+var deepLink = `split-cash://${extractRedirectPath()}`;
+            console.log(deepLink);
+            window.location.replace(deepLink);
         setTimeout(function () {
             openStore();
         }, 1000);
