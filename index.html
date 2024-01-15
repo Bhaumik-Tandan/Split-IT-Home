@@ -12,7 +12,7 @@
     <script>
         function openStore() {
             var deepLink = `split-cash://${extractRedirectPath()}`;
-
+            console.log(`split-cash://${extractRedirectPath()`);
             if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
                 window.location = `https://apps.apple.com/in/app/vitian/id1491471781?deep_link=${encodeURIComponent(deepLink)}`;
             } else if (navigator.userAgent.match(/Android/)) {
