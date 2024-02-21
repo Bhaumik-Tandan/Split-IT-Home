@@ -10,36 +10,25 @@
 <body>
     <h1>Please Wait...</h1>
     <script>
-    function openStore() {
-        if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
-            window.location = "https://apps.apple.com/in/app/vitian/id1491471781";
-        } else if (navigator.userAgent.match(/Android/)) {
-            window.location = "https://play.google.com/store/apps/details?id=edu.vit.vtop.androidapp&pli=1";
+        function openStore() {
+            if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
+                window.location = "https://apps.apple.com/in/app/vitian/id1491471781";
+            } else if (navigator.userAgent.match(/Android/)) {
+                window.location = "https://play.google.com/store/apps/details?id=edu.vit.vtop.androidapp&pli=1";
+            }
         }
-    }
 
-    function extractRedirectPath() {
-        // Extract the fragment after #/
-        var hash = window.location.hash.substring(2); // Removes #/
-        return hash;
-    }
-
-    function canOpenUrl(url) {
-        var iframe = document.createElement('iframe');
-        iframe.style.display = 'none';
-        document.body.appendChild(iframe);
-        iframe.src = url;
+        function extractRedirectPath() {
+            // Extract the fragment after #/
+            var hash = window.location.hash.substring(2); // Removes #/
+            return hash;
+        }
+var deepLink = `split-cash://${extractRedirectPath()}`;
+            console.log(deepLink);
+            window.location.replace(deepLink);
         setTimeout(function () {
-            document.body.removeChild(iframe);
-        }, 3000); // Adjust timeout as needed
-    }
-
-    var deepLink = `split-cash://${extractRedirectPath()}`;
-    if (canOpenUrl(deepLink))
-        window.location.replace(deepLink);
-    else
-        openStore();
-</script>
-
+            openStore();
+        }, 1000);
+    </script>
 </body>
 </html>
