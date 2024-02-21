@@ -24,12 +24,28 @@
             return hash;
         }
 
-var deepLink = `split-cash://${extractRedirectPath()}`;
-            console.log(deepLink);
-            window.location.replace(deepLink);
-        setTimeout(function () {
-            openStore();
-        }, 1000);
+        // Define the function to open the deep link or app store based on availability
+        function openDeepLinkOrStore() {
+            var deepLink = `split-cash://${extractRedirectPath()}`;
+
+            // Try opening the deep link
+            window.location.href = deepLink;
+
+            // Set a timeout to check if the deep link opened successfully
+            setTimeout(function() {
+                // If still on the same page, the deep link didn't open
+                if (document.hidden) {
+                    // Page is hidden, indicating the deep link opened successfully
+                    console.log("Deep link opened successfully.");
+                } else {
+                    // Page is still visible, indicating the deep link didn't open
+                    openStore(); // Open the app store
+                }
+            }, 1000);
+        }
+
+        // Call the function to open the deep link or app store
+        openDeepLinkOrStore();
     </script>
 </body>
 </html>
