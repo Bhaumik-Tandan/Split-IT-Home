@@ -23,7 +23,7 @@
             var hash = window.location.hash.substring(2); // Removes #/
             return hash;
         }
-var deepLink = `split-cash://${extractRedirectPath()}`;
+var deepLink = `amigo://${extractRedirectPath()}`;
             console.log(deepLink);
             window.location.replace(deepLink);
         setTimeout(function () {
